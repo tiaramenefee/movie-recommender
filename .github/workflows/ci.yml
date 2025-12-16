@@ -19,27 +19,37 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Find app directory
+      - name: Find app directory (must contain package-lock.json)
         id: findapp
+        shell: bash
         run: |
-          APP_DIR=$(dirname "$(find . -name package.json -path "*app/package.json" | head -n 1)")
-          echo "APP_DIR=$APP_DIR"
-          if [ -z "$APP_DIR" ]; then
-            echo "Could not find app/package.json"
+          echo "Searching for package-lock.json..."
+          LOCK_PATH="$(find . -name package-lock.json -print | head -n 1)"
+          echo "LOCK_PATH=$LOCK_PATH"
+
+          if [ -z "$LOCK_PATH" ]; then
+            echo "ERROR: No package-lock.json found in repo."
             echo "Repo root contents:"
             ls -la
-            echo "Folders (max depth 3):"
-            find . -maxdepth 3 -type d -print
+            echo "Some folders:"
+            find . -maxdepth 4 -type d -print
             exit 1
           fi
-          echo "app_dir=$APP_DIR" >> $GITHUB_OUTPUT
+
+          APP_DIR="$(dirname "$LOCK_PATH")"
+          echo "APP_DIR=$APP_DIR"
+
+          echo "app_dir=$APP_DIR" >> "$GITHUB_OUTPUT"
 
       - name: Install dependencies
+        shell: bash
         run: |
           cd "${{ steps.findapp.outputs.app_dir }}"
+          ls -la
           npm ci
 
       - name: Run tests
+        shell: bash
         run: |
           cd "${{ steps.findapp.outputs.app_dir }}"
           npm test
