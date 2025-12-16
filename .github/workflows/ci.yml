@@ -37,6 +37,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Check Docker secrets exist
+        if: github.ref == 'refs/heads/main'
+        run: |
+          if [ -z "${{ secrets.DOCKERHUB_USERNAME }}" ]; then echo "DOCKERHUB_USERNAME is MISSING"; else echo "DOCKERHUB_USERNAME is SET"; fi
+          if [ -z "${{ secrets.DOCKERHUB_TOKEN }}" ]; then echo "DOCKERHUB_TOKEN is MISSING"; else echo "DOCKERHUB_TOKEN is SET"; fi
+
+
       - name: Build and push Docker image
         if: github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v6
