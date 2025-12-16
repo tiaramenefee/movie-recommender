@@ -14,24 +14,35 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Show folders
-        run: |
-          pwd
-          ls -la
-          find . -maxdepth 3 -type d -print
-
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
+      - name: Find app directory
+        id: findapp
+        run: |
+          APP_DIR=$(dirname "$(find . -name package.json -path "*app/package.json" | head -n 1)")
+          echo "APP_DIR=$APP_DIR"
+          if [ -z "$APP_DIR" ]; then
+            echo "Could not find app/package.json"
+            echo "Repo root contents:"
+            ls -la
+            echo "Folders (max depth 3):"
+            find . -maxdepth 3 -type d -print
+            exit 1
+          fi
+          echo "app_dir=$APP_DIR" >> $GITHUB_OUTPUT
+
       - name: Install dependencies
-        working-directory: app
-        run: npm ci
+        run: |
+          cd "${{ steps.findapp.outputs.app_dir }}"
+          npm ci
 
       - name: Run tests
-        working-directory: app
-        run: npm test
+        run: |
+          cd "${{ steps.findapp.outputs.app_dir }}"
+          npm test
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -47,6 +58,6 @@ jobs:
         if: github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v6
         with:
-          context: ./app
+          context: ${{ steps.findapp.outputs.app_dir }}
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/movie-recommender:latest
