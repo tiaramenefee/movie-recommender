@@ -19,40 +19,13 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Find app directory (must contain package-lock.json)
-        id: findapp
-        shell: bash
-        run: |
-          echo "Searching for package-lock.json..."
-          LOCK_PATH="$(find . -name package-lock.json -print | head -n 1)"
-          echo "LOCK_PATH=$LOCK_PATH"
-
-          if [ -z "$LOCK_PATH" ]; then
-            echo "ERROR: No package-lock.json found in repo."
-            echo "Repo root contents:"
-            ls -la
-            echo "Some folders:"
-            find . -maxdepth 4 -type d -print
-            exit 1
-          fi
-
-          APP_DIR="$(dirname "$LOCK_PATH")"
-          echo "APP_DIR=$APP_DIR"
-
-          echo "app_dir=$APP_DIR" >> "$GITHUB_OUTPUT"
-
       - name: Install dependencies
-        shell: bash
-        run: |
-          cd "${{ steps.findapp.outputs.app_dir }}"
-          ls -la
-          npm ci
+        working-directory: app
+        run: npm ci
 
       - name: Run tests
-        shell: bash
-        run: |
-          cd "${{ steps.findapp.outputs.app_dir }}"
-          npm test
+        working-directory: app
+        run: npm test
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -68,6 +41,6 @@ jobs:
         if: github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v6
         with:
-          context: ${{ steps.findapp.outputs.app_dir }}
+          context: ./app
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/movie-recommender:latest
