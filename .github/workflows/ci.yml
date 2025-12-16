@@ -14,17 +14,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Show folders
+        run: |
+          pwd
+          ls -la
+          find . -maxdepth 3 -type d -print
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
       - name: Install dependencies
-        working-directory: movie-recommender/app
+        working-directory: app
         run: npm ci
 
       - name: Run tests
-        working-directory: movie-recommender/app
+        working-directory: app
         run: npm test
 
       - name: Set up Docker Buildx
@@ -41,6 +47,6 @@ jobs:
         if: github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v6
         with:
-          context: ./movie-recommender/app
+          context: ./app
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/movie-recommender:latest
