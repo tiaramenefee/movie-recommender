@@ -1,0 +1,29 @@
+[
+  {
+    "id": "tt0000001",
+    "title": "Action Hero",
+    "year": 2020,
+    "genres": ["Action"],
+    "rating": 8.2,
+    "runtimeMinutes": 110,
+    "isKidFriendly": false
+  },
+  {
+    "id": "tt0000002",
+    "title": "Family Fun",
+    "year": 2019,
+    "genres": ["Family", "Comedy"],
+    "rating": 7.5,
+    "runtimeMinutes": 95,
+    "isKidFriendly": true
+  },
+  {
+    "id": "tt0000003",
+    "title": "Comedy Night",
+    "year": 2021,
+    "genres": ["Comedy"],
+    "rating": 7.9,
+    "runtimeMinutes": 103,
+    "isKidFriendly": false
+  }
+]

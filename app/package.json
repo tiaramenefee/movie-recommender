@@ -1,0 +1,25 @@
+{
+  "name": "movie-recommender",
+  "version": "1.0.0",
+  "description": "Movie recommendation API",
+  "type": "module",
+  "main": "server.js",
+ "scripts": {
+  "start": "node server.js",
+  "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+  "test:unit": "cross-env NODE_OPTIONS=--experimental-vm-modules jest tests/unit",
+  "test:integration": "cross-env NODE_OPTIONS=--experimental-vm-modules jest tests/integration"
+}
+,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "jest": "^30.2.0",
+    "supertest": "^7.1.4"
+  }
+}
