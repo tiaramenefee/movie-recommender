@@ -1,29 +1,167 @@
 [
   {
     "id": "tt0000001",
-    "title": "Action Hero",
-    "year": 2020,
-    "genres": ["Action"],
-    "rating": 8.2,
-    "runtimeMinutes": 110,
-    "isKidFriendly": false
-  },
-  {
-    "id": "tt0000002",
-    "title": "Family Fun",
-    "year": 2019,
-    "genres": ["Family", "Comedy"],
-    "rating": 7.5,
-    "runtimeMinutes": 95,
+    "title": "The Grinch",
+    "year": 2018,
+    "genres": ["Animation", "Comedy", "Family"],
+    "rating": 6.4,
+    "runtimeMinutes": 85,
     "isKidFriendly": true
   },
   {
+    "id": "tt0000002",
+    "title": "Ford v Ferrari",
+    "year": 2019,
+    "genres": ["Action", "Drama", "Sport"],
+    "rating": 8.1,
+    "runtimeMinutes": 152,
+    "isKidFriendly": false
+  },
+  {
     "id": "tt0000003",
-    "title": "Comedy Night",
+    "title": "The Gray Man",
+    "year": 2022,
+    "genres": ["Action", "Thriller"],
+    "rating": 6.5,
+    "runtimeMinutes": 122,
+    "isKidFriendly": false
+  },
+  {
+    "id": "tt0000004",
+    "title": "Spider-Man: Homecoming",
+    "year": 2017,
+    "genres": ["Action", "Adventure", "Sci-Fi"],
+    "rating": 7.4,
+    "runtimeMinutes": 133,
+    "isKidFriendly": true
+  },
+  {
+    "id": "tt0000005",
+    "title": "Spider-Man: Far From Home",
+    "year": 2019,
+    "genres": ["Action", "Adventure", "Sci-Fi"],
+    "rating": 7.4,
+    "runtimeMinutes": 129,
+    "isKidFriendly": true
+  },
+  {
+    "id": "tt0000006",
+    "title": "Spider-Man: No Way Home",
     "year": 2021,
-    "genres": ["Comedy"],
+    "genres": ["Action", "Adventure", "Sci-Fi"],
+    "rating": 8.2,
+    "runtimeMinutes": 148,
+    "isKidFriendly": false
+  },
+  {
+    "id": "tt0000007",
+    "title": "Knives Out",
+    "year": 2019,
+    "genres": ["Comedy", "Crime", "Drama"],
     "rating": 7.9,
-    "runtimeMinutes": 103,
+    "runtimeMinutes": 130,
+    "isKidFriendly": false
+  },
+  {
+    "id": "tt0000008",
+    "title": "Glass Onion: A Knives Out Mystery",
+    "year": 2022,
+    "genres": ["Comedy", "Crime", "Drama"],
+    "rating": 7.2,
+    "runtimeMinutes": 139,
+    "isKidFriendly": false
+  },
+  {
+    "id": "tt0000009",
+    "title": "Sweet Home Alabama",
+    "year": 2002,
+    "genres": ["Comedy", "Romance"],
+    "rating": 6.2,
+    "runtimeMinutes": 108,
+    "isKidFriendly": true
+  },
+  {
+    "id": "tt0000010",
+    "title": "Kung Fu Panda",
+    "year": 2008,
+    "genres": ["Animation", "Action", "Comedy"],
+    "rating": 7.6,
+    "runtimeMinutes": 92,
+    "isKidFriendly": true
+  },
+  {
+    "id": "tt0000011",
+    "title": "Tangled",
+    "year": 2010,
+    "genres": ["Animation", "Adventure", "Family"],
+    "rating": 7.7,
+    "runtimeMinutes": 100,
+    "isKidFriendly": true
+  },
+  {
+    "id": "tt0000012",
+    "title": "Encanto",
+    "year": 2021,
+    "genres": ["Animation", "Family", "Fantasy"],
+    "rating": 7.2,
+    "runtimeMinutes": 102,
+    "isKidFriendly": true
+  },
+  {
+    "id": "tt0000013",
+    "title": "Moana",
+    "year": 2016,
+    "genres": ["Animation", "Adventure", "Family"],
+    "rating": 7.6,
+    "runtimeMinutes": 107,
+    "isKidFriendly": true
+  },
+  {
+    "id": "tt0000014",
+    "title": "The Maze Runner",
+    "year": 2014,
+    "genres": ["Action", "Sci-Fi", "Thriller"],
+    "rating": 6.8,
+    "runtimeMinutes": 113,
+    "isKidFriendly": false
+  },
+  {
+    "id": "tt0000015",
+    "title": "Godzilla",
+    "year": 2014,
+    "genres": ["Action", "Adventure", "Sci-Fi"],
+    "rating": 6.4,
+    "runtimeMinutes": 123,
+    "isKidFriendly": false
+  },
+  {
+    "id": "tt0000016",
+    "title": "The Hobbit: An Unexpected Journey",
+    "year": 2012,
+    "genres": ["Adventure", "Fantasy"],
+    "rating": 7.8,
+    "runtimeMinutes": 169,
+    "isKidFriendly": false
+  },
+  {
+    "id": "tt0000017",
+    "title": "The Hobbit: The Desolation of Smaug",
+    "year": 2013,
+    "genres": ["Adventure", "Fantasy"],
+    "rating": 7.8,
+    "runtimeMinutes": 161,
+    "isKidFriendly": false
+  },
+  {
+    "id": "tt0000018",
+    "title": "The Hobbit: The Battle of the Five Armies",
+    "year": 2014,
+    "genres": ["Adventure", "Fantasy"],
+    "rating": 7.4,
+    "runtimeMinutes": 144,
     "isKidFriendly": false
   }
 ]
+
+
+
